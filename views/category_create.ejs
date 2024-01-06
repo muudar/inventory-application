@@ -1,1 +1,22 @@
-<div>Hello</div>
+<h2>Add Category</h2>
+<% if (typeof errors !== "undefined") { %>
+<div class="error-message">
+  <ul>
+    <% errors.forEach(function(error) { %>
+    <li><%= error.msg %></li>
+    <% }); %>
+  </ul>
+</div>
+<% } %>
+<form action="/category/add" method="post" onsubmit="return validateForm()">
+  <label for="categoryName">Category Name:</label>
+  <input
+    type="text"
+    id="categoryName"
+    name="categoryName"
+    placeholder="Enter category name (3-25 characters)"
+    required
+  />
+
+  <button type="submit">Submit</button>
+</form>
